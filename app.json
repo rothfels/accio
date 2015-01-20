@@ -1,0 +1,7 @@
+{
+  "name": "Accio",
+  "description": "A barebones Node.js app using Express 4 to implement an ad hoc email list",
+  "repository": "https://github.com/rothfels/accio",
+  "logo": "http://accio.johnrothfels.com/node.svg",
+  "keywords": ["node", "express", "static"]
+}
