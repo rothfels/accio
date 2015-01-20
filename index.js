@@ -12,7 +12,9 @@ app.get('/', function(request, response) {
   response.json(mailBody);
 });
 
-app.post('/mail', function(request, response) {
+app.all('/mail', function(request, response) {
+  console.log(request);
+  console.log(request.body);
   mailBody = request.body;
   response.json(mailBody);
 });
