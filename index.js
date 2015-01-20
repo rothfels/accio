@@ -37,7 +37,7 @@ var sendMessages = function(subject, text) {
       from: 'John Rothfels <me@johnrothfels.com>',
       to: recipient,
       subject: subject,
-      text: text || ''
+      text: 'some sample text'
     };
 
     mailgun.messages().send(data, function(err, body) {
