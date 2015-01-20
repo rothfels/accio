@@ -14,7 +14,7 @@ app.get('/', function(request, response) {
 
 app.post('/mail', function(request, response) {
   // console.log(request.param('sender'));
-  // console.log(request.get('sender'));
+  console.log(request.params);
   console.log(request.body);
   //mailBody = request.body;
   response.sendStatus(200);
