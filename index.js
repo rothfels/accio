@@ -8,7 +8,7 @@ var mailBody = {};
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 
 
@@ -18,9 +18,9 @@ app.get('/', function(request, response) {
 
 app.post('/mail', function(request, response) {
   // console.log(request.param('sender'));
-  console.log(request.params);
+  // console.log(request.params);
   console.log(request.body);
-  //mailBody = request.body;
+  mailBody = request.body;
   response.sendStatus(200);
 });
 
