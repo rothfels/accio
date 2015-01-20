@@ -48,7 +48,7 @@ var sendMessages = function(subject, text) {
         console.log('successfully sent message');
         console.log(body);
       }
-    };
+    });
   });
 };
 
