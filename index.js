@@ -31,6 +31,7 @@ app.get('/clear', function(req, res) {
 })
 
 var sendMessages = function(subject, text) {
+  console.log('we are in send messages');
   _.forEach(_.keys(adHocCollection), function(recipient) {
     var data = {
       from: 'John Rothfels <me@johnrothfels.com>',
@@ -44,6 +45,7 @@ var sendMessages = function(subject, text) {
         console.log("ERROR");
         console.log(err);
       } else {
+        console.log('successfully sent message');
         console.log(body);
       }
     };
