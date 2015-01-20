@@ -12,11 +12,12 @@ app.get('/', function(request, response) {
   response.json(mailBody);
 });
 
-app.all('/mail', function(request, response) {
-  console.log(request);
-  console.log(request.body);
-  mailBody = request.body;
-  response.json(mailBody);
+app.post('/mail', function(request, response) {
+  console.log(request.param('sender'));
+  console.log(request.get('sender'));
+  //console.log(request.body);
+  //mailBody = request.body;
+  response.sendStatus(200);
 });
 
 app.listen(app.get('port'), function() {
