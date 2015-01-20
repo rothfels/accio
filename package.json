@@ -1,7 +1,7 @@
 {
   "name": "accio",
   "version": "0.1.0",
-  "description": "An ad hoc email list server",
+  "description": "Receives emails routed from mailgun and produces an ad hoc mailing list of the senders",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,7 +9,9 @@
   "dependencies": {
     "express": "^4.0.0",
     "body-parser": "1.10.x",
-    "multer": "0.1.x"
+    "multer": "0.1.x",
+    "lodash": "2.4.x",
+    "mailgun-js": "0.6.x"
   },
   "engines": {
     "node": "0.10.x"
