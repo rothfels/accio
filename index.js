@@ -37,7 +37,7 @@ var sendMessages = function(subject, text) {
       from: 'John Rothfels <me@johnrothfels.com>',
       to: recipient,
       subject: subject,
-      text: text
+      text: text || ''
     };
 
     mailgun.messages().send(data, function(err, body) {
@@ -53,10 +53,13 @@ var sendMessages = function(subject, text) {
 };
 
 app.post('/mail', function(req, res) {
+  console.log('got mail');
+  console.log(req.body);
   var sender = req.body.sender;
   if (sender === triggerAddress) {
     sendMessages(req.body.subject);
   } else {
+    console.log('adding ' + sender + ' to collection');
     adHocCollection[req.body.sender] = true;
   }
 
