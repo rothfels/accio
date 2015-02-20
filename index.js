@@ -57,7 +57,7 @@ app.post('/mail', function(req, res) {
   console.log(req.body);
   var sender = req.body.sender;
   if (sender === triggerAddress) {
-    sendMessages(req.body.subject, req.body.html);
+    sendMessages(req.body.subject, req.body["body-html"]);
   } else {
     console.log('adding ' + sender + ' to collection');
     adHocCollection[req.body.sender] = true;
