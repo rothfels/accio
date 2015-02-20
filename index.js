@@ -4,12 +4,12 @@ var multer = require('multer');
 var _ = require('lodash');
 
 // Email adress which sends to all addresses in the ad hoc collection.
-var triggerAddress = 'john.rothfels@gmail.com'
+var triggerAddress = 'kevin@mindofkevin.com'
 
 // Set your mailgun API key here.
 var api_key = 'key-35d22fa46e85f8090bc8d205648d5588';
 // var domain = 'johnrothfels.com.mailgun.org';
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: 'johnrothfels.com'});
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: 'kevinblakesecrets.com'});
 
 var app = express();
 var adHocCollection = {};
@@ -30,14 +30,14 @@ app.get('/clear', function(req, res) {
   res.send('All clear!');
 })
 
-var sendMessages = function(subject, text) {
+var sendMessages = function(subject, html) {
   console.log('we are in send messages');
   _.forEach(_.keys(adHocCollection), function(recipient) {
     var data = {
-      from: 'John Rothfels <me@johnrothfels.com>',
+      from: 'Kevin Blake <secrets@kevinblakesecrets.com>',
       to: recipient,
       subject: subject,
-      text: 'some sample text'
+      html: html
     };
 
     mailgun.messages().send(data, function(err, body) {
@@ -57,7 +57,7 @@ app.post('/mail', function(req, res) {
   console.log(req.body);
   var sender = req.body.sender;
   if (sender === triggerAddress) {
-    sendMessages(req.body.subject);
+    sendMessages(req.body.subject, req.body.html);
   } else {
     console.log('adding ' + sender + ' to collection');
     adHocCollection[req.body.sender] = true;
